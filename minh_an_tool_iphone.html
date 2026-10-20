@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07101c">
+<title>MINH AN TOOL — Hitbox Config</title>
+<style>
+:root{color-scheme:dark;--bg:#060c16;--panel:#0b1524;--panel2:#101d30;--line:#1d3048;--cyan:#37d7e7;--blue:#3686ff;--muted:#8ea3bc;--txt:#edf5ff}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#0b1b30,#050912 58%);color:var(--txt);font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}header{position:sticky;top:0;z-index:4;padding:calc(12px + env(safe-area-inset-top)) 14px 12px;background:#07101cf2;border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}.top{display:flex;align-items:center;gap:10px}.logo{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#41e2ed,#3475ff);color:#03101a;font-weight:900;font-size:16px}.brand{font-weight:900;letter-spacing:1.2px}.sub{font-size:10px;color:#87a5c4;letter-spacing:1.4px;margin-top:3px}.badge{margin-left:auto;color:#56e4aa;border:1px solid #245642;background:#0b241f;border-radius:20px;padding:6px 8px;font-size:9px}
+main{max-width:920px;margin:auto;padding:12px 12px calc(28px + env(safe-area-inset-bottom));display:grid;gap:12px}.card{border:1px solid var(--line);border-radius:15px;background:linear-gradient(155deg,#0d1a2b,#09111d);padding:13px;box-shadow:0 12px 30px #0003}.heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.heading b{font-size:11px;letter-spacing:1.2px}.mini{font-size:9px;color:var(--cyan);border:1px solid #1d586a;border-radius:20px;padding:5px 7px}.notice{font-size:11px;color:#a9bfd5;background:#0a1b2a;border:1px solid #1b344c;border-radius:10px;padding:10px;margin-bottom:12px;line-height:1.5}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:7px}.feature{min-height:42px;text-align:left;display:flex;align-items:center;gap:7px;padding:9px;background:#0a1726;border:1px solid #1c3148;border-radius:9px;color:#dceafa;font-size:11px}.feature.active{border-color:#2c9cad;background:#0e2938}.dot{width:7px;height:7px;border-radius:50%;background:#4e6c85;flex:none}.feature.active .dot{background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+.preview{position:relative;display:grid;place-items:center;min-height:290px;border:1px solid #1b3048;border-radius:12px;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#112c46,#07111e 72%)}.preview.grid{background-image:linear-gradient(#2c7b9a12 1px,transparent 1px),linear-gradient(90deg,#2c7b9a12 1px,transparent 1px),radial-gradient(ellipse at 50% 40%,#112c46,#07111e 72%);background-size:22px 22px,22px 22px,auto}.preview:after{content:"BODY PREVIEW · DEMO ONLY";position:absolute;bottom:9px;font-size:9px;letter-spacing:1px;color:#6c8ca9}.preview svg{height:280px;width:100%;max-width:330px;touch-action:manipulation}.part{fill:#213a56;stroke:#6b91b5;stroke-width:1.4;cursor:pointer}.part.selected{fill:#24536d;stroke:#8df5ff;filter:drop-shadow(0 0 5px #38d9ef)}#ring{fill:#37d7e72b;stroke:var(--cyan);stroke-width:2;pointer-events:none;filter:drop-shadow(0 0 7px var(--cyan))}
+.selected-info{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.stat{padding:10px;border:1px solid var(--line);background:#091522;border-radius:10px}.stat small{display:block;color:var(--muted);font-size:9px;letter-spacing:.6px}.stat strong{display:block;margin-top:5px;font-size:12px}
+label{display:block;color:#9bb1c8;font-size:10px;letter-spacing:.5px;margin-bottom:7px}.field{margin:13px 0}.val{float:right;color:var(--cyan);font-variant-numeric:tabular-nums}input[type=range]{width:100%;accent-color:var(--cyan);margin:4px 0}input[type=color]{width:100%;height:40px;border:1px solid var(--line);border-radius:9px;background:#07111d;padding:3px}select{width:100%;background:#07111d;border:1px solid var(--line);border-radius:9px;color:var(--txt);padding:11px;font-size:12px}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:10px}.btnrow{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.btnrow.three{grid-template-columns:repeat(3,1fr)}button{border:1px solid #27445f;background:#10253a;color:#e6f3ff;border-radius:9px;padding:11px 8px;font-size:11px;font-weight:700;min-height:40px}button.primary{background:linear-gradient(120deg,#35d7e4,#377cf4);border:0;color:#03121c}button:active{transform:scale(.985)}textarea{width:100%;min-height:145px;background:#030911;border:1px solid #20374e;border-radius:10px;color:#a8f3dc;padding:10px;font:11px/1.5 ui-monospace,monospace;resize:vertical}.footnote{font-size:10px;color:#8197ae;line-height:1.5}.toast{padding:9px 10px;border:1px solid #1d4053;border-radius:9px;background:#091b29;color:#9ec7d7;font-size:11px;margin-top:9px}
+@media(min-width:720px){main{grid-template-columns:1fr 1fr;align-items:start}.jsoncard{grid-column:1/-1}.preview{min-height:370px}.preview svg{height:350px}}
+</style>
+</head>
+<body>
+<header><div class="top"><div class="logo">MA</div><div><div class="brand">MINH AN TOOL</div><div class="sub">HITBOX CONFIG · VISUAL INTERFACE</div></div><span class="badge">● LOCAL DEMO</span></div></header>
+<main>
+<section class="card">
+ <div class="heading"><b>01 / CHỌN CHỨC NĂNG</b><span class="mini">INTERACTIVE</span></div>
+ <div class="notice">Bản giao diện độc lập cho iPhone. Các tùy chỉnh bên dưới chỉ tác động lên hình minh họa và file cấu hình, không điều khiển Free Fire.</div>
+ <div class="features" id="features">
+  <button class="feature active" data-region="head"><i class="dot"></i>HS Đỉnh đầu</button>
+  <button class="feature" data-region="neck"><i class="dot"></i>HS Cổ</button>
+  <button class="feature" data-region="chest"><i class="dot"></i>HS Ngực</button>
+  <button class="feature" data-region="abdomen"><i class="dot"></i>HS Bụng</button>
+  <button class="feature" data-region="left-shoulder"><i class="dot"></i>Vai trái</button>
+  <button class="feature" data-region="right-shoulder"><i class="dot"></i>Vai phải</button>
+  <button class="feature" data-region="left-arm"><i class="dot"></i>Tay trái</button>
+  <button class="feature" data-region="right-arm"><i class="dot"></i>Tay phải</button>
+ </div>
+ <div class="heading" style="margin-top:16px"><b>02 / BODY PREVIEW</b><span class="mini">TOUCH TO SELECT</span></div>
+ <div class="preview grid" id="preview">
+ <svg viewBox="0 0 300 350" aria-label="Hình cơ thể minh họa">
+ <circle class="part selected" data-region="head" cx="150" cy="45" r="25"/>
+ <path class="part" data-region="neck" d="M139 70 L161 70 L165 91 L135 91 Z"/>
+ <path class="part" data-region="chest" d="M127 91 Q150 82 173 91 L191 115 L179 180 L121 180 L109 115 Z"/>
+ <path class="part" data-region="left-shoulder" d="M111 99 L91 108 L73 145 L88 154 L112 126 Z"/>
+ <path class="part" data-region="right-shoulder" d="M189 99 L209 108 L227 145 L212 154 L188 126 Z"/>
+ <path class="part" data-region="left-arm" d="M73 145 L88 154 L82 207 L66 204 Z"/>
+ <path class="part" data-region="right-arm" d="M227 145 L212 154 L218 207 L234 204 Z"/>
+ <path class="part" data-region="abdomen" d="M121 180 L179 180 L174 229 L126 229 Z"/>
+ <path class="part" data-region="left-leg" d="M126 229 L148 229 L143 302 L123 302 Z"/>
+ <path class="part" data-region="right-leg" d="M152 229 L174 229 L177 302 L157 302 Z"/>
+ <path class="part" data-region="left-foot" d="M123 302 L143 302 L146 320 L112 320 Q111 310 123 302Z"/>
+ <path class="part" data-region="right-foot" d="M157 302 L177 302 L188 320 L154 320Z"/>
+ <circle id="ring" cx="150" cy="45" r="22"/>
+ </svg>
+ </div>
+ <div class="selected-info"><div class="stat"><small>VÙNG ĐANG CHỌN</small><strong id="selectedName">HS Đỉnh đầu</strong></div><div class="stat"><small>CHẾ ĐỘ</small><strong>Visual Preview</strong></div></div>
+</section>
+<section class="card">
+ <div class="heading"><b>03 / ĐIỀU CHỈNH GIAO DIỆN</b><span class="mini">LIVE UPDATE</span></div>
+ <div class="twocol"><div class="field"><label for="color">MÀU VÒNG TRÒN</label><input id="color" type="color" value="#37d7e7"></div><div class="field"><label for="accent">MÀU PHỤ</label><input id="accent" type="color" value="#3686ff"></div></div>
+ <div class="field"><label for="size">KÍCH THƯỚC <span class="val" id="sizeVal">22 px</span></label><input id="size" type="range" min="8" max="52" value="22"></div>
+ <div class="field"><label for="thickness">ĐỘ DÀY VIỀN <span class="val" id="thicknessVal">2 px</span></label><input id="thickness" type="range" min="1" max="8" value="2"></div>
+ <div class="field"><label for="opacity">ĐỘ TRONG SUỐT <span class="val" id="opacityVal">17%</span></label><input id="opacity" type="range" min="5" max="70" value="17"></div>
+ <div class="field"><label for="preset">MÀU CÀI SẴN</label><select id="preset"><option value="cyan">Cyan Neon</option><option value="green">Green Pulse</option><option value="violet">Violet Core</option><option value="amber">Amber Glow</option></select></div>
+ <div class="btnrow"><button id="toggleRing">Ẩn vòng tròn</button><button id="toggleGrid">Ẩn lưới</button></div>
+ <div class="btnrow"><button id="reset">Khôi phục mặc định</button><button class="primary" id="generate">Tạo JSON</button></div>
+</section>
+<section class="card jsoncard">
+ <div class="heading"><b>04 / CẤU HÌNH JSON</b><span class="mini">SAVE / LOAD</span></div>
+ <textarea id="json" spellcheck="false" aria-label="JSON config"></textarea>
+ <div class="btnrow three"><button class="primary" id="copy">Sao chép</button><button id="save">Lưu JSON</button><button id="load">Nạp JSON</button></div>
+ <input type="file" id="file" accept=".json,application/json" hidden>
+ <div class="toast" id="status" role="status">Sẵn sàng — thay đổi tùy chọn để xem bản xem trước.</div>
+ <p class="footnote">File cấu hình được tạo ngay trên thiết bị. Safari có thể hỏi vị trí lưu hoặc tải file tùy phiên bản iOS. Đây không phải plugin game và không sửa dữ liệu của trò chơi.</p>
+</section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const points={head:[150,45],neck:[150,81],chest:[150,135],abdomen:[150,205],"left-shoulder":[99,124],"right-shoulder":[201,124],"left-arm":[77,177],"right-arm":[223,177],"left-leg":[135,265],"right-leg":[165,265],"left-foot":[129,312],"right-foot":[171,312]};
+const names={head:"HS Đỉnh đầu",neck:"HS Cổ",chest:"HS Ngực",abdomen:"HS Bụng","left-shoulder":"Vai trái","right-shoulder":"Vai phải","left-arm":"Tay trái","right-arm":"Tay phải","left-leg":"Chân trái","right-leg":"Chân phải","left-foot":"Bàn chân trái","right-foot":"Bàn chân phải"};
+let region="head",showRing=true,showGrid=true;
+function setStatus(t){$("status").textContent=t}
+function alpha(hex,pct){return hex+Math.round(pct*2.55).toString(16).padStart(2,"0")}
+function update(){
+ const [x,y]=points[region],c=$("color").value,s=+$("size").value,o=+$("opacity").value,w=+$("thickness").value;
+ $("ring").setAttribute("cx",x);$("ring").setAttribute("cy",y);$("ring").setAttribute("r",s);$("ring").setAttribute("stroke",c);$("ring").setAttribute("stroke-width",w);$("ring").setAttribute("fill",alpha(c,o));$("ring").style.display=showRing?"":"none";
+ $("sizeVal").textContent=s+" px";$("thicknessVal").textContent=w+" px";$("opacityVal").textContent=o+"%";$("selectedName").textContent=names[region];
+ $("preview").classList.toggle("grid",showGrid);
+ document.querySelectorAll(".part").forEach(el=>el.classList.toggle("selected",el.dataset.region===region));
+ document.querySelectorAll(".feature").forEach(el=>el.classList.toggle("active",el.dataset.region===region));
+ document.documentElement.style.setProperty("--cyan",c);document.documentElement.style.setProperty("--blue",$("accent").value);
+}
+function config(){return {app:"MINH AN TOOL",version:1,mode:"standalone-visual-demo",selectedRegion:region,visual:{circleColor:$("color").value,accentColor:$("accent").value,sizePx:+$("size").value,outlineWidthPx:+$("thickness").value,opacityPercent:+$("opacity").value,showCircle:showRing,showGrid,preset:$("preset").value},note:"Visual configuration only; no game integration."}}
+function makeJson(){ $("json").value=JSON.stringify(config(),null,2);setStatus("Đã tạo JSON cấu hình.");}
+document.querySelectorAll("[data-region]").forEach(el=>el.addEventListener("click",()=>{region=el.dataset.region;update()}));
+["color","accent","size","thickness","opacity"].forEach(id=>$(id).addEventListener("input",update));
+$("preset").addEventListener("change",()=>{const colors={cyan:["#37d7e7","#3686ff"],green:["#59ef8b","#168b60"],violet:["#bb83ff","#6841d9"],amber:["#ffbf55","#df7823"]}[$("preset").value];$("color").value=colors[0];$("accent").value=colors[1];update()});
+$("toggleRing").addEventListener("click",()=>{showRing=!showRing;$("toggleRing").textContent=showRing?"Ẩn vòng tròn":"Hiện vòng tròn";update()});
+$("toggleGrid").addEventListener("click",()=>{showGrid=!showGrid;$("toggleGrid").textContent=showGrid?"Ẩn lưới":"Hiện lưới";update()});
+$("reset").addEventListener("click",()=>{region="head";$("color").value="#37d7e7";$("accent").value="#3686ff";$("size").value=22;$("thickness").value=2;$("opacity").value=17;$("preset").value="cyan";showRing=true;showGrid=true;$("toggleRing").textContent="Ẩn vòng tròn";$("toggleGrid").textContent="Ẩn lưới";update();makeJson();setStatus("Đã khôi phục mặc định.")});
+$("generate").addEventListener("click",makeJson);
+$("copy").addEventListener("click",async()=>{if(!$("json").value.trim())makeJson();try{await navigator.clipboard.writeText($("json").value);setStatus("Đã sao chép JSON.");}catch(e){$("json").focus();$("json").select();setStatus("Không thể sao chép tự động trong phiên Safari này. Văn bản đã được chọn; nhấn Sao chép trong menu.");}});
+$("save").addEventListener("click",()=>{if(!$("json").value.trim())makeJson();const blob=new Blob([ $("json").value ],{type:"application/json"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="minh-an-tool-config.json";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1200);setStatus("Đã yêu cầu Safari tải/lưu file JSON.")});
+$("load").addEventListener("click",()=>$("file").click());
+$("file").addEventListener("change",async e=>{const f=e.target.files[0];if(!f)return;try{const c=JSON.parse(await f.text());if(!c.visual||!points[c.selectedRegion])throw Error();region=c.selectedRegion;$("color").value=c.visual.circleColor||"#37d7e7";$("accent").value=c.visual.accentColor||"#3686ff";$("size").value=c.visual.sizePx||22;$("thickness").value=c.visual.outlineWidthPx||2;$("opacity").value=c.visual.opacityPercent||17;$("preset").value=c.visual.preset||"cyan";showRing=c.visual.showCircle!==false;showGrid=c.visual.showGrid!==false;$("toggleRing").textContent=showRing?"Ẩn vòng tròn":"Hiện vòng tròn";$("toggleGrid").textContent=showGrid?"Ẩn lưới":"Hiện lưới";update();makeJson();setStatus("Đã nạp cấu hình thành công.")}catch(err){setStatus("JSON không hợp lệ hoặc không đúng định dạng MINH AN TOOL.")}e.target.value=""});
+update();makeJson();
+</script>
+</body></html>
